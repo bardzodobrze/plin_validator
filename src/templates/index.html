@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+</head>
+<body>
+    <h1>Seleccione su sede:</h1>
+    <h4>Cupones canjeados hasta ahora (todo Domino's Perú): {{ cupones_canjeados }}</h4>
+    <form action="/add" method="post">
+        <select id="tiendas" name="tiendas">
+            {% for tienda in tiendas %}
+                <option value="{{ tienda }}">{{ tienda }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <a class="btn btn-secondary" href="{{ url_for('logout') }}">Cerrar sesión</a>
+</body>
+</html>
